@@ -1,15 +1,30 @@
 import React, {Component} from 'react'
 
 class Article extends Component {
-  // constructor() {
-  //   super(props)
-  //   this.state = {
-  //     isOpen: true
-  //   }
-  // }
-  state = {
-    isOpen: true
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      isOpen: props.defaultOpen
+    }
   }
+  
+  componentWillMount () {
+
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.defaultOpen !== this.props.defaultOpen) {
+      this.setState({
+        isOpen: nextProps.defaultOpen
+      })
+    }
+  }
+
+  componentWillUpdate () {
+    
+  }
+
   render() {
     const {article} = this.props
     const body = this.state.isOpen && <section className="card-text">{article.text}</section>

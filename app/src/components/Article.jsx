@@ -35,8 +35,4 @@ class Article extends Component {
   }
 }
 
-function handleClick() {
-
-}
-
 export default Article
